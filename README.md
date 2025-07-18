@@ -31,7 +31,6 @@
 - **Python 3.8** veya üzeri
 - Gerekli kütüphaneler:
 
-```bash
 pip install customtkinter selenium pillow requests
 
 Chromedriver (Chrome sürümüne uygun):
