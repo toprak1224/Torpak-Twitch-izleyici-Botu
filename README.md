@@ -25,6 +25,20 @@ Bu uygulama, **Selenium** kütüphanesini kullanarak arka planda sahte izleyicil
 
 > 🎯 Amaç: Twitch’e aktif izleyici gibi gözüken otomasyon sekmeleri göndermek.
 
+> ---
+
+## ❗ Önemli Uyarı
+
+<p align="center">
+  <strong><span style="color:red">🚫 Harici proxy hizmeti satın almanıza gerek yoktur.</span></strong><br>
+  Uygulama, yerleşik ücretsiz proxy sitelerini otomatik olarak kullanır.
+</p>
+
+Tüm işlemler, sistem içindeki açık kaynaklı web proxy’ler aracılığıyla gerçekleştirilir.  
+Proxy listesi kod içine gömülüdür ve rastgele seçimle çalışır.
+
+---
+
 ## 🚀 Özellikler
 
 - 🎨 Tema seçimi (dinamik renk butonları)
