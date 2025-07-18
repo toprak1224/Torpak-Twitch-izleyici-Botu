@@ -3,7 +3,7 @@
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGZod2NrenNxbTVkbzVwMzFmdHNweGl6MzVraGsxanV0OTJtc2FhdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/nvnCtgFUPvXS9MELci/giphy.gif" width="130" alt="Twitch Logo">
 </p>
 
-<h1 align="center">✨ Toprak Chat Bot</h1>
+<h1 align="center">✨ Toprak İzleyici Botu</h1>
 
 <p align="center">
   Modern, temalı ve kullanıcı dostu Twitch izleyici botu.<br>
