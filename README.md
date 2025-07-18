@@ -11,21 +11,6 @@
 </p>
 
 ---
-
-## 🚀 Özellikler
-
-- 🎨 Tema seçimi (dinamik renk butonları)
-- 🌐 Rastgele veya manuel proxy seçimi
-- 👥 İzleyici sayısını belirleme
-- 🖥️ Sekme göster/gizle seçeneği
-- 🔁 Otomatik sekme yenileme (her 3 dakikada bir)
-- ⏱️ Geri sayım sayacı
-- 🌀 Hareketli Twitch logosu (web'den çekiliyor)
-- 🔗 GitHub yönlendirmesi
-- ✍️ “Coded by Toprak” imzası
-
----
-
 ## 🔧 Nasıl Çalışır?
 
 Bu uygulama, **Selenium** kütüphanesini kullanarak arka planda sahte izleyiciler oluşturur. İşleyiş mantığı şu şekildedir:
@@ -39,6 +24,15 @@ Bu uygulama, **Selenium** kütüphanesini kullanarak arka planda sahte izleyicil
 7. Tüm bu işlemler kullanıcı arayüzünü dondurmadan arka planda çalışır
 
 > 🎯 Amaç: Twitch’e aktif izleyici gibi gözüken otomasyon sekmeleri göndermek.
+
+## 🚀 Özellikler
+
+- 🎨 Tema seçimi (dinamik renk butonları)
+- 🌐 Rastgele veya manuel proxy seçimi
+- 👥 İzleyici sayısını belirleme
+- 🖥️ Sekme göster/gizle seçeneği
+- 🔁 Otomatik sekme yenileme (her 3 dakikada bir)
+- ⏱️ Geri sayım sayacı
 
 ---
 
