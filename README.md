@@ -1,11 +1,12 @@
-<!-- 🖼️ En Üstte Hareketli Twitch Görseli -->
+<!-- 🎥 Üstte Hareketli Twitch Logosu -->
 <p align="center">
   <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGZod2NrenNxbTVkbzVwMzFmdHNweGl6MzVraGsxanV0OTJtc2FhdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/nvnCtgFUPvXS9MELci/giphy.gif" width="130" alt="Twitch Logo">
 </p>
 
 <h1 align="center">✨ Toprak Chat Bot</h1>
+
 <p align="center">
-  Modern, temalı ve kullanıcı dostu Twitch izleyici botu.  
+  Modern, temalı ve kullanıcı dostu Twitch izleyici botu.<br>
   Sekme yenileme, renkli arayüz, proxy desteği ve daha fazlası!
 </p>
 
@@ -13,54 +14,40 @@
 
 ## 🚀 Özellikler
 
-- 🎨 Tema Seçimi (canlı renkler)
-- 🌐 Rastgele veya manuel proxy
+- 🎨 Tema seçimi (dinamik renk butonları)
+- 🌐 Rastgele veya manuel proxy seçimi
 - 👥 İzleyici sayısını belirleme
-- 🖥️ Sekme göster / gizle seçeneği
-- 🔁 Otomatik sekme yenileme (3 dakikada bir)
-- ⏱️ Geri sayım göstergesi
-- 🌀 Hareketli Twitch logosu
-- 🔗 GitHub butonu ve "Coded by Toprak" imzası
+- 🖥️ Sekme göster/gizle seçeneği
+- 🔁 Otomatik sekme yenileme (her 3 dakikada bir)
+- ⏱️ Geri sayım sayacı
+- 🌀 Hareketli Twitch logosu (web'den çekiliyor)
+- 🔗 GitHub yönlendirmesi
+- ✍️ “Coded by Toprak” imzası
 
 ---
 
 ## ⚙️ Gereksinimler
 
-- Python 3.8 veya üzeri
-- Gereken kütüphaneler:
+- **Python 3.8** veya üzeri
+- Gerekli kütüphaneler:
 
 ```bash
 pip install customtkinter selenium pillow requests
 
-chromedriver.exe dosyasını aynı klasöre yerleştirin
-Doğru sürümü indir
+Chromedriver (Chrome sürümüne uygun):
 
-📦 Nasıl Kullanılır?
-Uygulamayı başlat:
+https://chromedriver.chromium.org/downloads
 
-bash
-Kopyala
-Düzenle
-python toprak_chat_bot.py
-Kanal adını ve izleyici sayısını gir
+Dosyayı uygulama klasörüne ekleyin (chromedriver.exe)
 
-Proxy seçimini yap veya rastgeleyi bırak
+📸 Ekran Görüntüsü
 
-Sekme yenilemeyi ve görünürlüğü ayarla
+<img width="897" height="676" alt="image" src="https://github.com/user-attachments/assets/ea8bad17-1afb-4b18-8b90-faf8636cd27f" />
 
-🚀 “Gönder” butonuna bas
-
-📌 Ekran Görüntüsü
-<img width="897" height="676" alt="image" src="https://github.com/user-attachments/assets/df15120c-0e17-4bba-803c-ba295ace4ee6" />
-
-markdown
-Kopyala
-Düzenle
-![Toprak Chat Bot Ekran Görüntüsü](ekran-goruntusu.png)
-⚠️ Yasal Uyarı
+⚠️ Uyarı
 Bu yazılım yalnızca test ve eğitim amaçlıdır.
-Twitch’in hizmet koşullarına aykırı kullanımlar kullanıcının sorumluluğundadır.
+Twitch'in hizmet koşullarını ihlal edebilecek kullanımlar kullanıcının sorumluluğundadır.
 
-👤 Geliştirici
+👨‍💻 Geliştirici
 Toprak
 🔗 github.com/toprak1224
