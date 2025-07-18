@@ -15,9 +15,56 @@ ctk.set_default_color_theme("blue")
 class ToprakChatBot:
     def __init__(self):
         self.root = ctk.CTk()
-        self.root.title("✨ Toprak İzleyici Botu")
+        self.root.title("✨ Toprak Viewer Bot")
         self.root.geometry("900x650")
         self.driver = None
+
+        self.current_lang = "en"
+
+        self.languages = {
+            "tr": {
+                "title": "Toprak İzleyici Botu",
+                "channel_name": "Kanal Adı (örnek: ishowspeed)",
+                "viewer_count": "İzleyici Sayısı",
+                "random_proxy": "Rastgele Proxy",
+                "show_tabs": "🖥️ Sekmeleri Göster",
+                "refresh_tabs": "🔁 Sekmeleri 3 dakikada bir yenile",
+                "send": "🚀 Gönder",
+                "stop": "✖ Durdur",
+                "github": "🌐 GitHub",
+                "coded_by": "✨ Toprak tarafından kodlandı",
+                "error_viewer": "İzleyici sayısı geçerli değil.",
+                "error_channel": "Kanal adı boş olamaz.",
+                "bot_starting": "Bot başlatılıyor...",
+                "bot_sent": "{} izleyici gönderildi.",
+                "bot_stopped": "Bot durduruldu.",
+                "refreshing": "Sekmeler yenilendi.",
+                "refresh_timer": "Yenilemeye kalan süre: {} saniye",
+                "refresh_error": "Yenileme hatası: {}",
+                "error": "Hata"
+            },
+            "en": {
+                "title": "Toprak Viewer Bot",
+                "channel_name": "Channel Name (e.g., ishowspeed)",
+                "viewer_count": "Viewer Count",
+                "random_proxy": "Random Proxy",
+                "show_tabs": "🖥️ Show Tabs",
+                "refresh_tabs": "🔁 Refresh every 3 minutes",
+                "send": "🚀 Start",
+                "stop": "✖ Stop",
+                "github": "🌐 GitHub",
+                "coded_by": "✨ Coded by Toprak",
+                "error_viewer": "Invalid viewer count.",
+                "error_channel": "Channel name cannot be empty.",
+                "bot_starting": "Starting bot...",
+                "bot_sent": "{} viewers sent.",
+                "bot_stopped": "Bot stopped.",
+                "refreshing": "Tabs refreshed.",
+                "refresh_timer": "Refresh in: {} seconds",
+                "refresh_error": "Refresh error: {}",
+                "error": "Error"
+            }
+        }
 
         self.theme_colors = ["#FF6B6B", "#4ECDC4", "#45B7D1", "#FFEAA7", "#DDA0DD", "#F7DC6F", "#98D8C8"]
         self.proxy_list = [
@@ -38,6 +85,9 @@ class ToprakChatBot:
         self.animate_gif()
         self.root.mainloop()
 
+    def tr(self, key):
+        return self.languages[self.current_lang][key]
+
     def build_ui(self):
         self.frame = ctk.CTkFrame(self.root)
         self.frame.pack(fill="both", expand=True, padx=20, pady=20)
@@ -50,26 +100,26 @@ class ToprakChatBot:
         gif_image = Image.open(BytesIO(gif_data))
         self.gif_frames = [ImageTk.PhotoImage(frame.copy().resize((80, 80))) for frame in ImageSequence.Iterator(gif_image)]
 
-        self.title_label = ctk.CTkLabel(self.frame, text="Toprak İzleyici Botu", font=ctk.CTkFont(size=28, weight="bold"))
+        self.title_label = ctk.CTkLabel(self.frame, text=self.tr("title"), font=ctk.CTkFont(size=28, weight="bold"))
         self.title_label.pack(pady=(100, 5))
 
-        self.channel_entry = self.create_entry("Kanal Adı (örnek: ishowspeed)")
-        self.viewer_entry = self.create_entry("İzleyici Sayısı", "5")
+        self.channel_entry = self.create_entry("channel_name")
+        self.viewer_entry = self.create_entry("viewer_count", "5")
 
-        self.proxy_var = ctk.StringVar(value="Rastgele Proxy")
+        self.proxy_var = ctk.StringVar(value=self.tr("random_proxy"))
         self.proxy_container = ctk.CTkFrame(self.frame, fg_color="transparent")
         self.proxy_container.pack(pady=5)
         self.proxy_menu = ctk.CTkOptionMenu(self.proxy_container, variable=self.proxy_var,
-                                            values=["Rastgele Proxy"] + self.proxy_list,
+                                            values=[self.tr("random_proxy")] + self.proxy_list,
                                             width=400)
         self.proxy_menu.pack()
 
         self.show_tabs = ctk.BooleanVar(value=False)
-        self.tab_checkbox = ctk.CTkCheckBox(self.frame, text="🖥️ Sekmeleri Göster", variable=self.show_tabs)
+        self.tab_checkbox = ctk.CTkCheckBox(self.frame, text=self.tr("show_tabs"), variable=self.show_tabs)
         self.tab_checkbox.pack(pady=5)
 
         self.refresh_enabled = ctk.BooleanVar(value=True)
-        self.refresh_checkbox = ctk.CTkCheckBox(self.frame, text="🔁 Sekmeleri 3 dakikada bir yenile", variable=self.refresh_enabled)
+        self.refresh_checkbox = ctk.CTkCheckBox(self.frame, text=self.tr("refresh_tabs"), variable=self.refresh_enabled)
         self.refresh_checkbox.pack(pady=5)
 
         self.refresh_label = ctk.CTkLabel(self.frame, text="")
@@ -78,13 +128,13 @@ class ToprakChatBot:
         button_frame = ctk.CTkFrame(self.frame, fg_color="transparent")
         button_frame.pack(pady=10)
 
-        self.start_btn = ctk.CTkButton(button_frame, text="🚀 Gönder", command=self.start_bot, width=180)
+        self.start_btn = ctk.CTkButton(button_frame, text=self.tr("send"), command=self.start_bot, width=180)
         self.start_btn.pack(side="left", padx=10)
 
-        self.stop_btn = ctk.CTkButton(button_frame, text="✖ Durdur", command=self.stop_bot, state="disabled", width=120)
+        self.stop_btn = ctk.CTkButton(button_frame, text=self.tr("stop"), command=self.stop_bot, state="disabled", width=120)
         self.stop_btn.pack(side="left", padx=10)
 
-        self.github_btn = ctk.CTkButton(self.frame, text="🌐 GitHub",
+        self.github_btn = ctk.CTkButton(self.frame, text=self.tr("github"),
                                         command=lambda: webbrowser.open("https://github.com/toprak1224"))
         self.github_btn.pack(pady=5)
 
@@ -99,15 +149,35 @@ class ToprakChatBot:
         self.status_label = ctk.CTkLabel(self.frame, text="", text_color="lightgreen")
         self.status_label.pack(pady=5)
 
-        self.signature = ctk.CTkLabel(self.root, text="✨ Coded by Toprak", text_color="gray")
-        self.signature.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
+        self.signature = ctk.CTkLabel(self.root, text=self.tr("coded_by"), text_color="gray")
+        self.signature.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-30)
 
-    def create_entry(self, label, default=""):
-        ctk.CTkLabel(self.frame, text=label, anchor="w").pack(pady=(10, 0), fill="x")
+        self.lang_switch = ctk.CTkSegmentedButton(self.root, values=["EN", "TR"], command=self.switch_lang)
+        self.lang_switch.set("EN")
+        self.lang_switch.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-5)
+
+    def create_entry(self, key, default=""):
+        ctk.CTkLabel(self.frame, text=self.tr(key), anchor="w").pack(pady=(10, 0), fill="x")
         entry = ctk.CTkEntry(self.frame)
         entry.insert(0, default)
         entry.pack(fill="x", pady=5)
         return entry
+
+    def switch_lang(self, lang):
+        self.current_lang = "tr" if lang == "TR" else "en"
+        self.refresh_ui()
+
+    def refresh_ui(self):
+        self.title_label.configure(text=self.tr("title"))
+        self.tab_checkbox.configure(text=self.tr("show_tabs"))
+        self.refresh_checkbox.configure(text=self.tr("refresh_tabs"))
+        self.start_btn.configure(text=self.tr("send"))
+        self.stop_btn.configure(text=self.tr("stop"))
+        self.github_btn.configure(text=self.tr("github"))
+        self.signature.configure(text=self.tr("coded_by"))
+
+        self.proxy_menu.configure(values=[self.tr("random_proxy")] + self.proxy_list)
+        self.proxy_var.set(self.tr("random_proxy"))
 
     def animate_gif(self):
         if self.gif_frames:
@@ -124,46 +194,23 @@ class ToprakChatBot:
         self.stop_btn.configure(fg_color=color, hover_color=color, text_color="black")
         self.github_btn.configure(fg_color=color, hover_color=color, text_color="black")
 
-        try:
-            self.proxy_menu.configure(
-                fg_color=color,
-                button_color=color,
-                text_color="black",
-                dropdown_fg_color=color,
-                dropdown_hover_color=color
-            )
-        except:
-            old_value = self.proxy_var.get()
-            self.proxy_menu.destroy()
-            self.proxy_menu = ctk.CTkOptionMenu(self.proxy_container,
-                                                variable=self.proxy_var,
-                                                values=["Rastgele Proxy"] + self.proxy_list,
-                                                fg_color=color,
-                                                button_color=color,
-                                                text_color="black",
-                                                dropdown_fg_color=color,
-                                                dropdown_hover_color=color,
-                                                width=400)
-            self.proxy_menu.set(old_value)
-            self.proxy_menu.pack()
-
     def start_bot(self):
         channel = self.channel_entry.get().strip()
         try:
             count = int(self.viewer_entry.get().strip())
         except:
-            messagebox.showerror("Hata", "İzleyici sayısı geçerli değil.")
+            messagebox.showerror(self.tr("error"), self.tr("error_viewer"))
             return
 
         if not channel:
-            messagebox.showerror("Hata", "Kanal adı boş olamaz.")
+            messagebox.showerror(self.tr("error"), self.tr("error_channel"))
             return
 
-        self.status_label.configure(text="Bot başlatılıyor...")
+        self.status_label.configure(text=self.tr("bot_starting"))
         self.start_btn.configure(state="disabled")
         self.stop_btn.configure(state="normal")
 
-        use_random = self.proxy_var.get() == "Rastgele Proxy"
+        use_random = self.proxy_var.get() == self.tr("random_proxy")
         base_proxy = None if use_random else self.proxy_var.get()
 
         threading.Thread(target=self.run_bot, args=(channel, count, base_proxy, use_random), daemon=True).start()
@@ -192,13 +239,13 @@ class ToprakChatBot:
                 except:
                     pass
 
-            self.status_label.configure(text=f"{count} izleyici gönderildi.")
+            self.status_label.configure(text=self.tr("bot_sent").format(count))
 
             if self.refresh_enabled.get():
                 threading.Thread(target=self.refresh_loop, daemon=True).start()
 
         except Exception as e:
-            self.status_label.configure(text="Hata: " + str(e))
+            self.status_label.configure(text=self.tr("error") + ": " + str(e))
         finally:
             self.start_btn.configure(state="normal")
             self.stop_btn.configure(state="disabled")
@@ -208,21 +255,21 @@ class ToprakChatBot:
             for i in range(self.refresh_seconds, 0, -1):
                 if not self.driver:
                     return
-                self.refresh_label.configure(text=f"Yenilemeye kalan süre: {i} saniye")
+                self.refresh_label.configure(text=self.tr("refresh_timer").format(i))
                 time.sleep(1)
             try:
                 for handle in self.driver.window_handles:
                     self.driver.switch_to.window(handle)
                     self.driver.refresh()
-                self.status_label.configure(text="Sekmeler yenilendi.")
+                self.status_label.configure(text=self.tr("refreshing"))
             except Exception as e:
-                self.status_label.configure(text=f"Yenileme hatası: {e}")
+                self.status_label.configure(text=self.tr("refresh_error").format(e))
 
     def stop_bot(self):
         if self.driver:
             self.driver.quit()
             self.driver = None
-            self.status_label.configure(text="Bot durduruldu.")
+            self.status_label.configure(text=self.tr("bot_stopped"))
         self.start_btn.configure(state="normal")
         self.stop_btn.configure(state="disabled")
         self.refresh_label.configure(text="")
