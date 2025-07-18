@@ -31,3 +31,36 @@
 
 ```bash
 pip install customtkinter selenium pillow requests
+
+chromedriver.exe dosyasını aynı klasöre yerleştirin
+Doğru sürümü indir
+
+📦 Nasıl Kullanılır?
+Uygulamayı başlat:
+
+bash
+Kopyala
+Düzenle
+python toprak_chat_bot.py
+Kanal adını ve izleyici sayısını gir
+
+Proxy seçimini yap veya rastgeleyi bırak
+
+Sekme yenilemeyi ve görünürlüğü ayarla
+
+🚀 “Gönder” butonuna bas
+
+📌 Ekran Görüntüsü
+<img width="897" height="676" alt="image" src="https://github.com/user-attachments/assets/df15120c-0e17-4bba-803c-ba295ace4ee6" />
+
+markdown
+Kopyala
+Düzenle
+![Toprak Chat Bot Ekran Görüntüsü](ekran-goruntusu.png)
+⚠️ Yasal Uyarı
+Bu yazılım yalnızca test ve eğitim amaçlıdır.
+Twitch’in hizmet koşullarına aykırı kullanımlar kullanıcının sorumluluğundadır.
+
+👤 Geliştirici
+Toprak
+🔗 github.com/toprak1224
