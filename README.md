@@ -27,15 +27,20 @@ Bu uygulama, **Selenium** kütüphanesini kullanarak arka planda sahte izleyicil
 
 > ---
 
-## ❗ Önemli Uyarı
+---
+
+<h2 align="center">❗ Önemli Uyarı</h2>
 
 <p align="center">
-  <strong><span style="color:red">🚫 Harici proxy hizmeti satın almanıza gerek yoktur.</span></strong><br>
-  Uygulama, yerleşik ücretsiz proxy sitelerini otomatik olarak kullanır.
+  <strong>🚫 Harici proxy hizmeti satın almanıza gerek yoktur.</strong><br>
+  <strong>🔒 Uygulama kendi içinde dahili proxy sistemini kullanır.</strong><br>
+  <strong>🌐 Tüm bağlantılar yerleşik açık kaynak proxy siteleriyle sağlanır.</strong>
 </p>
 
-Tüm işlemler, sistem içindeki açık kaynaklı web proxy’ler aracılığıyla gerçekleştirilir.  
-Proxy listesi kod içine gömülüdür ve rastgele seçimle çalışır.
+> Proxy listesi uygulamaya entegredir ve her izleyici bağlantısı rastgele proxy üzerinden yönlendirilir.
+
+---
+
 
 ---
 
