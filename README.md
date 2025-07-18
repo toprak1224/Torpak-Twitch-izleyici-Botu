@@ -26,6 +26,25 @@
 
 ---
 
+## 🔧 Nasıl Çalışır?
+
+Bu uygulama, **Selenium** kütüphanesini kullanarak arka planda sahte izleyiciler oluşturur. İşleyiş mantığı şu şekildedir:
+
+1. **Kullanıcı girişleri alınır** (kanal adı, izleyici sayısı, proxy türü)
+2. Uygulama, arka planda **Chrome tarayıcı sekmeleri** açar
+3. Her sekmede seçilen bir **proxy sitesi** üzerinden Twitch kanalına bağlanılır
+4. Sekmeler otomatik olarak Twitch yayınına yönlendirilir
+5. Eğer aktifse, her **3 dakikada bir sekmeler yenilenir** (AFK koruması)
+6. İsteğe bağlı olarak sekmeler **görünmez (headless)** olarak çalışır
+7. Tüm bu işlemler kullanıcı arayüzünü dondurmadan arka planda çalışır
+
+> 🎯 Amaç: Twitch’e aktif izleyici gibi gözüken otomasyon sekmeleri göndermek.
+
+---
+
+🧠 Not: Proxy’ler, Twitch’in IP tekrar tespiti ve bot korumalarını aşmak için kullanılır.  
+Rastgele proxy kullanımı bu yüzden önerilir.
+
 ## ⚙️ Gereksinimler
 
 - **Python 3.8** veya üzeri
