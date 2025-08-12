@@ -82,3 +82,7 @@ Twitch'in hizmet koşullarını ihlal edebilecek kullanımlar kullanıcının so
 👨‍💻 Geliştirici
 Toprak
 🔗 github.com/toprak1224
+
+
+
+Kichi779 Ye projeye olan destekleri için teşekkürler
