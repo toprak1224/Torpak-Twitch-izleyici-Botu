@@ -85,4 +85,4 @@ Toprak
 
 
 
-Kichi779 Ye projeye olan destekleri için teşekkürler
+Kichi779 Ye projeye olan destekleri için teşekkürler https://github.com/Kichi779
